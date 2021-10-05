@@ -7,9 +7,7 @@ function getValues() {
   fizz = parseInt(fizz);
   buzz = parseInt(buzz)
   if (Number.isInteger(fizz) && Number.isInteger(buzz)) {
-    // only allow integers inside scope of numbers
-    //startingNumber < 0 ? null : startingNumber = 0;
-   // endingNumber > 100 ? null : endingNumber = 100;
+
 
     // clear DOM
     writeHTML("");
@@ -26,6 +24,8 @@ function getValues() {
 
 }
 
+
+// generate the html to be written
 function genHTML(numbersArray, fizz, buzz) {
   let string = "";
   numbersArray.forEach((i) => {
@@ -48,8 +48,6 @@ function genHTML(numbersArray, fizz, buzz) {
     writeHTML(string);
   })
 }
-
-
 // simple write to element function
 function writeHTML(htmlStr) {
   let tableBody = document.getElementById("resultsID")
