@@ -43,7 +43,7 @@
                         <a class="nav-link active" aria-current="page" href="/code.html">The Code</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">The Repo</a>
+                        <a class="nav-link" href="https://github.com/alexbaker2002/fizzbuzz.git">The Repo</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" target="_blank" href="https://devalexbaker.netlify.com">About</a>
@@ -57,28 +57,85 @@
         <div class="container col-xxl-8 px-4 py-5 mt-5">
             <h1>The Code Page</h1>
             <hr>
-            <div class="container">
+            <div class="container ">
                 <div class="row row-cols-1 row-cols-lg-1 row-cols-xl-2 ">
-                    <div class="col-lg-8 col-md-12">
+                    <div class="col-lg-8 col-md-12 codeContainer">
                         <pre class="line-numbers">
                 <code class="language-js">
-function displayMessage(){
+function getValues() {
+// get values for fizz and buzz
+let fizz = document.getElementById("fizzValueID").value;
+let buzz = document.getElementById("buzzValueID").value;
 
-    let msg = document.getElementById("message").value;
+// validation
+fizz = parseInt(fizz);
+buzz = parseInt(buzz)
+if (Number.isInteger(fizz) && Number.isInteger(buzz)) {
+    fizz < -100 || fizz> 100 ? Swal.fire("The number for Fizz is outside of the specified range.") : null;
+    buzz < -100 || buzz> 100 ? Swal.fire("The number for Buzz is outside of the specified range.") : null;
 
-    (msg.length == "") ? msg = "Enter Something... Anything!!" : null;
+        // clear DOM
+        writeHTML("");
 
-    alert(msg);
+        let numbersArray = new Array(100).fill().map((_, idx) => idx + 1);
 
-}
+        genHTML(numbersArray, fizz, buzz);
+
+        } else {
+
+        Swal.fire("Please Enter Numbers Only");
+        }
+        }
+
+        // generate the html to be written
+        function genHTML(numbersArray, fizz, buzz) {
+        let string = "";
+        numbersArray.forEach((i) => {
+
+        if (i % fizz == 0 && i % buzz == 0) {
+        // if i % fizz && buzz write fizz buzz
+        string = `<tr>
+            <td class="fizzbuzzNumber">${i} - FizzBuzz</td>
+        </tr>`;
+
+        } else if (i % fizz == 0) {
+        // if i % fizz write fizz
+        string = `<tr>
+            <td class="fizzNumber">${i} - Fizz</td>
+        </tr>`;
+
+        } else if (i % buzz == 0) {
+        // if i % buzz write buzz
+        string = `<tr>
+            <td class="buzzNumber">${i} - Buzz</td>
+        </tr>`;
+        } else {
+        // if else write number
+        string = `<tr>
+            <td class="Number">${i}</td>
+        </tr>`;
+        }
+        writeHTML(string);
+        })
+        }
+        // simple write to element function
+        function writeHTML(htmlStr) {
+        let tableBody = document.getElementById("resultsID")
+        htmlStr == "" ? tableBody.innerHTML = "" : tableBody.innerHTML += htmlStr;
+        }
                 </code>
             </pre>
 
                     </div>
                     <div class="col-lg-4 col-md-12 gy-3">
-                        <p>The code is structured in one function.</p>
-                        <h5>displayMessage()</h5>
-                        <p>&nbsp;Prints out your message!</p>
+                        <p>The code {...}</p>
+                        <h5>getValues()</h5>
+                        <p class="offset-1">gets the inputs, validates, clears the DOM, and runs the genHTML function.</p>
+                        <h5>genHTML(numbersArray, fizz, buzz)</h5>
+                        <p class="offset-1">Takes the numbers 1-100, the user input fizz and buzz, checks if the number is a multiple and creates the html to send back to the DOM.</p>
+                    <h5>writeHTML(string)</h5>
+                    <p class="offset-1">Takes the html string from genHTML() and writes it to the DOM.</p>
+
                     </div>
                 </div>
             </div>

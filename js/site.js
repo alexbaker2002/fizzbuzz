@@ -1,3 +1,29 @@
+/*
+
+refactor to use DOM
+
+function displayData(result) {
+  // output 3 things
+  let tableBody = document.getElementById("results")
+  tableBody.innerHTML = ""
+  let rowTemplate = document.getElementById("tableTemplate");
+  const tableRow = document.importNode(rowTemplate.content, true)
+  let rowCols = tableRow.querySelectorAll("td");
+
+  // the original
+  rowCols[0].textContent = result.usr.toUpperCase();
+  // the reversed
+  rowCols[1].textContent = result.rev.toUpperCase();;
+  // was it a palindrome
+  rowCols[2].textContent = result.pal ? "PALINDROME" : "Not a Palindrome";
+  tableBody.appendChild(tableRow);
+}
+
+
+
+
+*/
+
 function getValues() {
   // get values for fizz and buzz
   let fizz = document.getElementById("fizzValueID").value;
@@ -7,7 +33,8 @@ function getValues() {
   fizz = parseInt(fizz);
   buzz = parseInt(buzz)
   if (Number.isInteger(fizz) && Number.isInteger(buzz)) {
-
+    fizz < -100 || fizz > 100 ? Swal.fire("The number for Fizz is outside of the specified range.") : null;
+    buzz < -100 || buzz > 100 ? Swal.fire("The number for Buzz is outside of the specified range.") : null;
 
     // clear DOM
     writeHTML("");
@@ -18,12 +45,9 @@ function getValues() {
 
   } else {
 
-    alert("Please Enter Numbers Only");
+    Swal.fire("Please Enter Numbers Only");
   }
-
-
 }
-
 
 // generate the html to be written
 function genHTML(numbersArray, fizz, buzz) {
@@ -53,3 +77,9 @@ function writeHTML(htmlStr) {
   let tableBody = document.getElementById("resultsID")
   htmlStr == "" ? tableBody.innerHTML = "" : tableBody.innerHTML += htmlStr;
 }
+
+
+
+
+
+

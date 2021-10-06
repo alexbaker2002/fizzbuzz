@@ -52,6 +52,7 @@ body {
     bottom: 0;
     position: absolute;
     width: 100%;
+    min-height:4em;
 }
 
 .footer .social>a {
@@ -113,4 +114,8 @@ body {
     color: var(--secondary-color);
     background-color:var(--dark-color) !important;
     text-align: center;
+}
+.codeContainer{
+    overflow-y: scroll;
+    height: 35vh;
 }

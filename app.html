@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>AppName: Code Challenge by Alex Baker</title>
+    <title>FizzBuzz: Code Challenge by Alex Baker</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -42,7 +42,7 @@
                         <a class="nav-link" href="/code.html">The Code</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">The Repo</a>
+                        <a class="nav-link" href="https://github.com/alexbaker2002/fizzbuzz.git">The Repo</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" target="_blank" href="https://devalexbaker.netlify.com">About</a>
@@ -55,61 +55,69 @@
     <main id="content" class="flex-shrink-0">
         <div class="container">
 
-      <div class="container mt-2">
+            <div class="container mt-2">
 
-          <div class="row row-cols-1 row-cols-lg-2">
-              <div class="col">
-                  <h1>FizzBuzz: A Coding Challenge</h1>
-                  <p> Prints numbers 1-100 and shows selected multiples to be Fizz and Buzz or FizzBuzz!</p>
+                <div class="row row-cols-1 row-cols-lg-2">
+                    <div class="col">
+                        <h1>FizzBuzz: A Coding Challenge</h1>
+                        <p> Prints numbers 1-100 and shows selected multiples to be Fizz and Buzz or FizzBuzz!</p>
 
-                  <h3 class="mt-lg-5 mt-3 border-2 border-bottom">Instructions</h3>
-                  <p>
-                      Enter a Fizz and Buzz value. Press the button and watch the magic happen.
-                  </p>
-              </div>
-              <div class="col">
-                  <div class="container">
-                      <div class="row ">
-                          <div class="col mt-2 mt-lg-3">
-                             
-                              <form>
-                                  <div class="row">
-                                      <div class="col">
-                                          <label for="fizzValueID">Fizz</label>
-                                          <input id="fizzValueID" type="number" class="form-control"
-                                              placeholder="Fizz" value="3" aria-label="Fizz Value">
+                        <h3 class="mt-lg-5 mt-3 border-2 border-bottom">Instructions</h3>
+                        <p>
+                            Enter a Fizz and Buzz value. Press the button and watch the magic happen.
+                        </p>
+                    </div>
+                    <div class="col">
+                        <div class="container">
+                            <div class="row ">
+                                <div class="col mt-2 mt-lg-3">
 
-
-                                      </div>
-                                      <div class="col">
-                                          <label for="buzzValueID">Buzz</label>
-                                          <input id="buzzValueID" type="number" class="form-control"
-                                              placeholder="Buzz Value" value="5" aria-label="Buzz Value">
-                                      </div>
-
-                                      <div class="col-12 d-flex justify-content-end mt-2"><button id="btnSubmit"
-                                              type="button" class="btn btn-dark btn-lg">FizzBuzz</button>
-
-                                      </div>
-
-                                  </div>
-                              </form>
-                              <h2 class="border-bottom border-2">Results</h2>
-                              <div class="table-responsive tableContainer">
-                                  <table class="table table-striped table-sm">
-                                      <tbody id="resultsID">
-                                          <!--Content goes here-->
-                                      </tbody>
-                                  </table>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
+                                    <form>
+                                        <div class="row">
+                                            <div class="col">
+                                                <label for="fizzValueID">Fizz</label>
+                                                <input id="fizzValueID" type="number" class="form-control"
+                                                    placeholder="Fizz" value="3" aria-label="Fizz Value">
 
 
-        </div>
+                                            </div>
+                                            <div class="col">
+                                                <label for="buzzValueID">Buzz</label>
+                                                <input id="buzzValueID" type="number" class="form-control"
+                                                    placeholder="Buzz Value" value="5" aria-label="Buzz Value">
+                                            </div>
+
+                                            <div class="col-12 d-flex justify-content-end mt-2"><button id="btnSubmit"
+                                                    type="button" class="btn btn-dark btn-lg">FizzBuzz</button>
+
+                                            </div>
+
+                                        </div>
+                                    </form>
+                                    <h2 class="border-bottom border-2">Results</h2>
+                                    <div class="table-responsive tableContainer">
+                                        <table class="table table-striped table-sm">
+                                            <tbody id="resultsID">
+                                                <!--Content goes here-->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Template  for results  table-->
+            <template id="fbTemplate">
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </template>
     </main>
 
 
@@ -152,7 +160,7 @@
     <script>
         document.getElementById('btnSubmit').addEventListener("click", getValues)
     </script>
-    
+
 </body>
 
 
